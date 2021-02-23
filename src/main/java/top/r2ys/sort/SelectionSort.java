@@ -1,0 +1,40 @@
+package top.r2ys.sort;
+
+import java.util.Arrays;
+
+/**
+ * @program: leetcode-course
+ * @description: 选择排序
+ * https://github.com/r2ys/JS-Sorting-Algorithm/blob/master/2.selectionSort.md
+ * https://mp.weixin.qq.com/s?__biz=MzUyNjQxNjYyMg==&mid=2247483943&idx=1&sn=5a9a40a9194fdd2eb82820fe4c4e1df3&chksm=fa0e6da6cd79e4b08768133a793077bf3b55e83141fbd10d69e7723bb95722852733945af58e&scene=21#wechat_redirect
+ * @author: HU
+ * @create: 2021-02-23 16:18
+ */
+public class SelectionSort implements IArraySort {
+    @Override
+    public int[] sort(int[] sourceArray) throws Exception {
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+
+        // 总共要经过 N-1 轮比较
+        for (int i = 0; i < arr.length - 1; i++) {
+            int min = i;
+
+            // 每轮需要比较的次数 N-i
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[min]) {
+                    // 记录目前能找到的最小值元素的下标
+                    min = j;
+                }
+            }
+
+            // 将找到的最小值和i位置所在的值进行交换
+            if (i != min) {
+                int tmp = arr[i];
+                arr[i] = arr[min];
+                arr[min] = tmp;
+            }
+
+        }
+        return arr;
+    }
+}
