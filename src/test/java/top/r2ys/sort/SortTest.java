@@ -12,10 +12,19 @@ class SortTest {
     void radixSort() {
         IArraySort sort;
         int[] result;
-        int[] arr = new int[]{321, 1, 10, 60, 577, 743, 127};
+        int[] arr = new int[]{-100, 321, 1, 10, 60, 577, 743, 127};
 
         // 冒泡排序
         sort = new BubbleSort();
+        try {
+//            result = sort.sort(arr);
+//            System.out.println(Arrays.toString(result));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // 堆排序
+        sort = new HeapSort();
         try {
             result = sort.sort(arr);
             System.out.println(Arrays.toString(result));
@@ -23,11 +32,20 @@ class SortTest {
             e.printStackTrace();
         }
 
+        // 计数排序
+        sort = new CountingSort();
+        try {
+//            result = sort.sort(arr);
+//            System.out.println(Arrays.toString(result));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         // 基数排序
         sort = new RadixSort();
         try {
-            result = sort.sort(arr);
-            System.out.println(Arrays.toString(result));
+//            result = sort.sort(arr);
+//            System.out.println(Arrays.toString(result));
         } catch (Exception e) {
             e.printStackTrace();
         }

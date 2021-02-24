@@ -26,6 +26,7 @@ public class BucketSort implements IArraySort {
             return arr;
         }
 
+        // 先找到最大最小值
         int minValue = arr[0];
         int maxValue = arr[0];
         for (int value : arr) {
@@ -36,6 +37,7 @@ public class BucketSort implements IArraySort {
             }
         }
 
+        // 根据数的大小范围平均每个桶的区间，最终确定桶的个数
         int bucketCount = (int) Math.floor((maxValue - minValue) / bucketSize) + 1;
         int[][] buckets = new int[bucketCount][0];
 
