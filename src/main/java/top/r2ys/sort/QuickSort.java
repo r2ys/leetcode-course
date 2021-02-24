@@ -5,46 +5,43 @@ import java.util.Arrays;
 /**
  * @program: leetcode-course
  * @description: 快速排序
+ * https://www.cnblogs.com/MOBIN/p/4681369.html
  * @author: HU
  * @create: 2021-02-24 15:29
  */
 public class QuickSort implements IArraySort {
 
+    public static void quickSort(int arr[],int _left,int _right){
+        int left = _left;
+        int right = _right;
+        int temp = 0;
+        if(left <= right){   //待排序的元素至少有两个的情况
+            temp = arr[left];  //待排序的第一个元素作为基准元素
+            while(left != right){   //从左右两边交替扫描，直到left = right
+
+                while(right > left && arr[right] >= temp)
+                    right --;        //从右往左扫描，找到第一个比基准元素小的元素
+                arr[left] = arr[right];  //找到这种元素arr[right]后与arr[left]交换
+
+                while(left < right && arr[left] <= temp)
+                    left ++;         //从左往右扫描，找到第一个比基准元素大的元素
+                arr[right] = arr[left];  //找到这种元素arr[left]后，与arr[right]交换
+
+            }
+            arr[right] = temp;    //基准元素归位
+            quickSort(arr,_left,left-1);  //对基准元素左边的元素进行递归排序
+            quickSort(arr, right+1,_right);  //对基准元素右边的进行递归排序
+        }
+    }
+    public static void main(String[] args) {
+        int[] array = {10,5,3,1,7,2,8};
+        System.out.println("排序之前:" + Arrays.toString(array));
+        quickSort(array,0,array.length-1);
+        System.out.println("排序之后:" + Arrays.toString(array));
+    }
+
     @Override
     public int[] sort(int[] sourceArray) throws Exception {
-        // 对 arr 进行拷贝，不改变参数内容
-        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
-
-        return quickSort(arr, 0, arr.length - 1);
+        return new int[0];
     }
-
-    private int[] quickSort(int[] arr, int left, int right) {
-        if (left < right) {
-            int partitionIndex = partition(arr, left, right);
-            quickSort(arr, left, partitionIndex - 1);
-            quickSort(arr, partitionIndex + 1, right);
-        }
-        return arr;
-    }
-
-    private int partition(int[] arr, int left, int right) {
-        // 设定基准值（pivot）
-        int pivot = left;
-        int index = pivot + 1;
-        for (int i = index; i <= right; i++) {
-            if (arr[i] < arr[pivot]) {
-                swap(arr, i, index);
-                index++;
-            }
-        }
-        swap(arr, pivot, index - 1);
-        return index - 1;
-    }
-
-    private void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
 }
