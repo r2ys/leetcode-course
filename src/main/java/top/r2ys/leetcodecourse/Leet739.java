@@ -5,7 +5,8 @@ import java.util.LinkedList;
 
 /**
  * @program: leetcode-course
- * @description:
+ * @description: 每日温度
+ * 递减栈
  * @author: HU
  * @create: 2021-02-10 14:53
  */
