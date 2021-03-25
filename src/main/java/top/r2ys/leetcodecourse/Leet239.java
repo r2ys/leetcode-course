@@ -14,7 +14,7 @@ import java.util.LinkedList;
  */
 public class Leet239 {
 
-    public int[] maxSlidingWindow2(int[] nums, int k) {
+    public int[] maxSlidingWindow(int[] nums, int k) {
         // 数组长度
         int leng = nums.length;
         // 滑动窗口移动次数 == 需要计算的次数（滑动窗口每次最大值）
@@ -57,7 +57,7 @@ public class Leet239 {
     public static void main(String[] args) {
         Leet239 leet239 = new Leet239();
         int[] arr = new int[]{1,3,-1,-3,5,3,6,7};
-        int[] resultArr2 = leet239.maxSlidingWindow2(arr, 3);
+        int[] resultArr2 = leet239.maxSlidingWindow(arr, 3);
         System.out.println(Arrays.toString(resultArr2));
     }
 }
