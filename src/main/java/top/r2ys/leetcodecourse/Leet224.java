@@ -1,20 +1,40 @@
 package top.r2ys.leetcodecourse;
 
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 
 /**
  * @program: leetcode-course
- * @description: 滑动窗口最大值
- * 使用双端队列，每滑动一次，当前值附加到队列末尾，末尾前只要小的都移除，队列头部的下标超出窗口的话也移除
- * 每次遍历的时候取队列的头就是每个滑动窗口的最大值
+ * @description:
  * @author: HU
  * @create: 2021-02-10 10:26
  */
-public class Leet239 {
-
+public class Leet224 {
     public int[] maxSlidingWindow(int[] nums, int k) {
+        //有点坑，题目里都说了数组不为空，且 k > 0。但是看了一下，测试用例里面还是有nums = [], k = 0，所以只好加上这个判断
+        if (nums == null || nums.length < k || k == 0) return new int[0];
+        int[] res = new int[nums.length - k + 1];
+        //双端队列
+        Deque<Integer> deque = new LinkedList<>();
+        for (int i = 0; i < nums.length; i++) {
+            //在尾部添加元素，并保证左边元素都比尾部大
+            while (!deque.isEmpty() && nums[deque.getLast()] < nums[i]) {
+                deque.removeLast();
+            }
+            deque.addLast(i);
+            //在头部移除元素
+            if (deque.getFirst() == i - k) {
+                deque.removeFirst();
+            }
+            //输出结果
+            if (i >= k - 1) {
+                res[i - k + 1] = nums[deque.getFirst()];
+            }
+        }
+        return res;
+    }
+
+    public int[] maxSlidingWindow2(int[] nums, int k) {
         // 数组长度
         int leng = nums.length;
         // 滑动窗口移动次数 == 需要计算的次数（滑动窗口每次最大值）
@@ -52,12 +72,5 @@ public class Leet239 {
             }
         }
         return maxValues;
-    }
-
-    public static void main(String[] args) {
-        Leet239 leet239 = new Leet239();
-        int[] arr = new int[]{1,3,-1,-3,5,3,6,7};
-        int[] resultArr2 = leet239.maxSlidingWindow(arr, 3);
-        System.out.println(Arrays.toString(resultArr2));
     }
 }

@@ -17,11 +17,4 @@ class Leet239Test {
         System.out.println(Arrays.toString(result));;
     }
 
-    @Test
-    void maxSlidingWindow2() {
-        Leet239 leet239 = new Leet239();
-        int[] arr = {1,3,-1,-3,5,3,6,7};
-        int[] result = leet239.maxSlidingWindow2(arr, 3);
-        System.out.println(Arrays.toString(result));;
-    }
 }

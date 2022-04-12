@@ -5,15 +5,16 @@ import java.util.LinkedList;
 
 /**
  * @program: leetcode-course
- * @description: 每日温度
- * 递减栈
+ * @description:
  * @author: HU
  * @create: 2021-02-10 14:53
  */
-public class Leet739 {
+public class Leet84 {
 
     /**
-     * https://mp.weixin.qq.com/s/o5HTxmOgpftSaQdebS9zyQ
+     * remove-duplicates-from-sorted-array:删除排序数组中的重复项
+     * https://github.com/MisterBooo/LeetCodeAnimation/blob/master/notes/LeetCode%E7%AC%AC26%E5%8F%B7%E9%97%AE%E9%A2%98%EF%BC%9A%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9.md
+     * https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
      * @param T
      * @return
      */

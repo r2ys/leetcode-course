@@ -2,7 +2,8 @@ package top.r2ys.leetcodecourse;
 
 /**
  * @program: leetcode-course
- * @description:
+ * @description: 字母异位词
+ * 字母哈希，分别做计数
  * @author: HU
  * @create: 2021-02-10 14:53
  */
