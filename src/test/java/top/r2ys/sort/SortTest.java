@@ -24,7 +24,7 @@ class SortTest {
         }
 
         // 堆排序
-        sort = new HeapSort();
+//        sort = new HeapSort();
         try {
             result = sort.sort(arr);
             System.out.println(Arrays.toString(result));
